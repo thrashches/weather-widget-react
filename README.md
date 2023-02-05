@@ -1,46 +1,52 @@
-# Getting Started with Create React App
+# Виджет погоды
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Этот виджет позволяет получать информацию о погоде:
 
-## Available Scripts
+- В любом городе по запросу;
 
-In the project directory, you can run:
+- По текущей геолокации пользователя.
 
-### `yarn start`
+Также пользователь может выбрать, на какой период он хочет узнать погоду:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- На текущее время;
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- На ближайшие 5 дней.
 
-### `yarn test`
+Все данные о погоде собираются из [OpenWeatherMap](https://openweathermap.org/) по API.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Доступные действия
 
-### `yarn build`
+В папке с проектом можно выполнить:
+#
+```bash
+yarn start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Запуск приложения в режиме dev-сервера.\
+Откройте [http://localhost:3000](http://localhost:3000) для просмотра в браузере.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#
+```bash
+yarn test
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Для запуска тестов.\
+Подробнее можно узнать в [документации](https://facebook.github.io/create-react-app/docs/running-tests).
+#
+```bash
+yarn build
+```
 
-### `yarn eject`
+Сборка приложения в папку `build`.\
+Сборка производится с необходимыми минификациями и оптимизациями.\
+Приложение будет готово для деплоя.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Подробнее можно узнать в [документации](https://facebook.github.io/create-react-app/docs/deployment).
+#
+```bash
+yarn eject
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Note: После запуска команды eject невозможно будет запустить ее снова, так как будут доступны все сценарии, кроме одного eject . Используйте эту команду, только если вам нужно. В противном случае придерживайтесь конфигурации по умолчанию. Во всяком случае, так будет лучше.**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+`create-react-app` поставляется с отличной конфигурацией и помогает создавать приложение React с учетом передовых методов его оптимизации. Однако запуск сценария eject удалит единственную зависимость сборки из вашего проекта. Это означает, что он скопирует файлы конфигурации и транзитивные зависимости (например, Webpack, Babel и т. д.) как зависимости в файле package.json . Если вы сделаете это, вы должны будете убедиться, что зависимости установлены перед созданием вашего проекта.
