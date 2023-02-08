@@ -1,23 +1,21 @@
 import React from "react";
 import "./App.css";
 import Search from "./components/Search/Search";
+import Weather from "./components/Weather/Weather";
 
-import {
-  LocationContext,
-} from "./context/LocationContext";
-import { useLocation } from "./hooks/useLocation";
+import { LocationProvider } from "./context/LocationContext";
+
 
 function App() {
-  const location = useLocation();
-
   return (
-    <LocationContext.Provider value={location}>
+    <LocationProvider>
       <div className="App">
         <header className="App-header">
           <Search />
+          <Weather />
         </header>
       </div>
-    </LocationContext.Provider>
+    </LocationProvider>
   );
 }
 

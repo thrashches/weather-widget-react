@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import Flag from "react-svg-country-flags";
-import { useLocation } from "../../hooks/useLocation";
+import { LocationContext } from "../../context/LocationContext";
 
-interface LocationInterface {
+interface ILocation {
   name: string;
   state: string;
   country: string;
@@ -15,9 +15,11 @@ interface LocationInterface {
 
 // Компонент результата поиска
 
-function SearchItem(props: LocationInterface) {
-  const { location, setCurrentLocation } = useLocation();
-  const handleSelectClick = () => {
+function SearchItem(props: ILocation) {
+  const { location, setCurrentLocation } = useContext(LocationContext);
+
+  const handleSelectClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    // Установка выбранного местоположения в контекст
     setCurrentLocation(props);
   }
 
@@ -37,4 +39,4 @@ function SearchItem(props: LocationInterface) {
   );
 }
 
-export { type LocationInterface, SearchItem };
+export { type ILocation, SearchItem };

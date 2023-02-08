@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { getCities } from "../../api/requests";
-import { SearchItem, LocationInterface } from "./SearchItem";
+import { SearchItem, ILocation } from "./SearchItem";
 import config from "../../api/config";
 import "./Search.scss";
+import { LocationContext } from "../../context/LocationContext";
 
 // Компонент поисковой строки
 
 function Search() {
   const [userInput, setUserInput] = useState("");
-  const [results, setResults] = useState<LocationInterface[] | []>([]);
+  const [results, setResults] = useState<ILocation[] | []>([]);
   const [itemsHeight, setItemsHeight] = useState(0);
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserInput(e.currentTarget.value.toLowerCase());
   };
+  const { location } = useContext(LocationContext);
 
   useEffect(() => {
     // Устанавливается задержка перед отправкой запроса,
@@ -20,7 +22,7 @@ function Search() {
     if (userInput.length) {
       const searchTimeout = setTimeout(() => {
         getCities(userInput)
-          .then((response: LocationInterface[]) => {
+          .then((response: ILocation[]) => {
             setResults(response);
             setItemsHeight(response.length * 36);
           })
