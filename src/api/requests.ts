@@ -1,5 +1,8 @@
 import config from "./config";
 
+
+// Загрузка списка городов по запросу
+
 async function getCities(userInput: string) {
   const url = new URL("http://api.openweathermap.org/geo/1.0/direct");
   url.search = new URLSearchParams({

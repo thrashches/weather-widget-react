@@ -1,14 +1,40 @@
 import React from "react";
+import Flag from "react-svg-country-flags";
+import { useLocation } from "../../hooks/useLocation";
 
-interface SearchItemProps {
+interface LocationInterface {
   name: string;
+  state: string;
+  country: string;
   local_names: {
     ru?: string;
   };
+  lat: number;
+  lon: number;
 }
 
-const SearchItem = (props: SearchItemProps) => (
-  <li>{props.name}</li>
-);
+// Компонент результата поиска
 
-export { type SearchItemProps, SearchItem };
+function SearchItem(props: LocationInterface) {
+  const { location, setCurrentLocation } = useLocation();
+  const handleSelectClick = () => {
+    setCurrentLocation(props);
+  }
+
+  return (
+    <li>
+      <div>
+        {props.name}, {props.state}{" "}
+        <Flag country={props.country} className="flag" />{" "}
+        <span className="text-secondary">
+          {props.lat}, {props.lon}
+        </span>
+      </div>
+      <div>
+        <button className="select-btn" onClick={handleSelectClick}>Выбрать</button>
+      </div>
+    </li>
+  );
+}
+
+export { type LocationInterface, SearchItem };

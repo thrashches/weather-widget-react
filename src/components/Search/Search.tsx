@@ -1,21 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { getCities } from "../../api/requests";
-import { SearchItem, SearchItemProps } from "./SearchItem";
+import { SearchItem, LocationInterface } from "./SearchItem";
 import config from "../../api/config";
 import "./Search.scss";
 
+// Компонент поисковой строки
+
 function Search() {
   const [userInput, setUserInput] = useState("");
-  const [results, setResults] = useState<SearchItemProps[] | []>([]);
+  const [results, setResults] = useState<LocationInterface[] | []>([]);
   const [itemsHeight, setItemsHeight] = useState(0);
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserInput(e.currentTarget.value.toLowerCase());
   };
+
   useEffect(() => {
+    // Устанавливается задержка перед отправкой запроса,
+    // чтобы избежать ограничения api
     if (userInput.length) {
       const searchTimeout = setTimeout(() => {
         getCities(userInput)
-          .then((response: SearchItemProps[]) => {
+          .then((response: LocationInterface[]) => {
             setResults(response);
             setItemsHeight(response.length * 36);
           })
@@ -31,13 +36,14 @@ function Search() {
       setItemsHeight(0);
     }
   }, [userInput]);
+
   const searchItems = results.map((result, index) => {
     console.log(result)
     return <SearchItem {...result} key={index} />;
   });
 
   return (
-    <div>
+    <div className="wrapper">
       <input
         type="text"
         className="search"
