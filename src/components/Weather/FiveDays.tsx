@@ -7,7 +7,6 @@ import { IForecast, IWeather } from "../../api/types";
 
 /**
  * Компонент, отображающий погоду на 5 дней
- * @returns 
  */
 export default function FiveDays() {
   const defaultForecast: IForecast = { list: [] };

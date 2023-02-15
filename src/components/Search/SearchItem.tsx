@@ -6,7 +6,6 @@ import { ILocation } from "../../api/types";
 /**
  * Компонент результата поиска
  * @param { import ("../../api/types").ILocation } props - объект местоположения из api
- * @returns
  */
 function SearchItem(props: ILocation) {
   const { location, setCurrentLocation } = useContext(LocationContext);

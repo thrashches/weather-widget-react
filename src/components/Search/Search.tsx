@@ -8,7 +8,6 @@ import SelectedLocation from "./SelectedLocation";
 
 /**
  * Компонент поисковой строки
- * @returns 
  */
 function Search() {
   const [userInput, setUserInput] = useState("");

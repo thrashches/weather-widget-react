@@ -4,7 +4,6 @@ import { LocationContext } from "../../context/LocationContext";
 
 /**
  * Компонент для отображения погоды на текущий день
- * @returns 
  */
 export default function Daily() {
   const [weather, setWeather] = useState();

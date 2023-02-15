@@ -6,7 +6,6 @@ import "./Weather.scss";
 
 /**
  * Компонент для отображения погоды
- * @returns 
  */
 export default function Weather() {
   const { location } = useContext(LocationContext);

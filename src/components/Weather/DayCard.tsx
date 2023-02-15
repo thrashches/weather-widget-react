@@ -6,7 +6,6 @@ import "./DayCard.scss";
 /**
  * Компонент для отображения погоды в конкретный день
  * @param { import ("../../api/types").IWeather } weather - Погода на день 
- * @returns 
  */
 const DayCard = (weather: IWeather) => {
   const date = new Date(weather.dt_txt);

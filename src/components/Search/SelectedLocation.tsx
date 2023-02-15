@@ -8,7 +8,6 @@ import { LocationContext } from "../../context/LocationContext";
 /**
  * Компонент выбранного местоположения
  * @param { import ("../../api/types").ILocation } props - объект местоположения из api
- * @returns 
  */
 export default function SelectedLocation(props: ILocation) {
   const { location, setCurrentLocation } = useContext(LocationContext);
