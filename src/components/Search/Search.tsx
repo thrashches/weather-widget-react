@@ -4,15 +4,27 @@ import { SearchItem, ILocation } from "./SearchItem";
 import config from "../../api/config";
 import "./Search.scss";
 import { LocationContext } from "../../context/LocationContext";
+import SelectedLocation from "./SelectedLocation";
 
-// Компонент поисковой строки
-
+/**
+ * Компонент поисковой строки
+ * @returns 
+ */
 function Search() {
   const [userInput, setUserInput] = useState("");
   const [results, setResults] = useState<ILocation[] | []>([]);
   const [itemsHeight, setItemsHeight] = useState(0);
+
+  const defaultInputStyle = {
+    borderBottomRightRadius: "5px",
+    borderBottomLeftRadius: "5px",
+  };
+  const [inputStyle, setInputStyle] = useState(defaultInputStyle);
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserInput(e.currentTarget.value.toLowerCase());
+    if (!e.currentTarget.value.length) {
+      setInputStyle(defaultInputStyle);
+    }
   };
   const { location } = useContext(LocationContext);
 
@@ -25,39 +37,49 @@ function Search() {
           .then((response: ILocation[]) => {
             setResults(response);
             setItemsHeight(response.length * 36);
+            if (response.length) {
+              setInputStyle({
+                borderBottomLeftRadius: "0px",
+                borderBottomRightRadius: "0px",
+              });
+            }
           })
           .catch(() => {
             setResults([]);
             setItemsHeight(0);
+            setInputStyle(defaultInputStyle);
           });
       }, config.REQUEST_TIMEOUT);
       return () => clearTimeout(searchTimeout);
-    }
-    else {
+    } else {
       setResults([]);
       setItemsHeight(0);
     }
   }, [userInput]);
 
   const searchItems = results.map((result, index) => {
-    console.log(result)
     return <SearchItem {...result} key={index} />;
   });
 
   return (
     <div className="wrapper">
-      <input
-        type="text"
-        className="search"
-        placeholder="Начните вводить название для поиска"
-        onInput={handleInput}
-      />
-      <ul
-        className="dropdown"
-        style={{height: itemsHeight}}
-      >
-        {searchItems}
-      </ul>
+      {location ? (
+        <SelectedLocation {...location} />
+      ) : (
+        <>
+          <input
+            type="text"
+            className="search"
+            placeholder="Начните вводить название для поиска"
+            style={inputStyle}
+            onInput={handleInput}
+            value={userInput}
+          />
+          <ul className="dropdown" style={{ height: itemsHeight }}>
+            {searchItems}
+          </ul>
+        </>
+      )}
     </div>
   );
 }

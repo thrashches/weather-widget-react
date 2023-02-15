@@ -1,6 +1,9 @@
-$width: 40vw;
+@import "../../stylesheets/typography/module";
+
+$width: 100%;
 
 .wrapper {
+  width: $width;
   position: relative;
 }
 
@@ -10,6 +13,7 @@ $width: 40vw;
   width: $width;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
+  transition: 0.4s border-radius;
   border: none;
   outline: none;
 }
@@ -28,7 +32,7 @@ $width: 40vw;
   padding: 0;
 }
 
-.dropdown li {
+@mixin search-item {
   display: flex;
   justify-content: space-between;
   font-size: 13px;
@@ -39,16 +43,38 @@ $width: 40vw;
   text-align: left;
 }
 
+.dropdown li {
+  @include search-item;
+}
+
 .flag {
   height: 12px;
 }
 
-.text-secondary {
-  color: #808080;
-}
-
 .select-btn {
+  color: #6f92c7;
   all: unset;
   cursor: pointer;
-  color: #6f92c7;
+}
+
+.close-btn {
+  all: unset;
+  cursor: pointer;
+  height: 16px;
+  width: 16px;
+  transition: 250ms;
+  :hover {
+    transform: scale(1.2);
+  }
+
+  &__icon {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.selected-location {
+  background: #fff;
+  @include search-item;
+  border-radius: 5px;
 }

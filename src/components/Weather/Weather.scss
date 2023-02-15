@@ -1,0 +1,11 @@
+@import "../../stylesheets/layout/module";
+
+.weather {
+  @include flex-col;
+  gap: 15px;
+}
+
+.tab-select {
+  @include d-flex;
+  justify-content: space-around;
+}

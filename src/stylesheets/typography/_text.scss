@@ -1,0 +1,11 @@
+.text-secondary {
+  color: #808080;
+}
+
+.text-blue {
+  color: #6f92c7;
+}
+
+@mixin ta-center {
+  text-align: center;
+}

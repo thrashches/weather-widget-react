@@ -1,27 +1,20 @@
 import React, { useContext } from "react";
 import Flag from "react-svg-country-flags";
 import { LocationContext } from "../../context/LocationContext";
+import { ILocation } from "../../api/types";
 
-interface ILocation {
-  name: string;
-  state: string;
-  country: string;
-  local_names: {
-    ru?: string;
-  };
-  lat: number;
-  lon: number;
-}
-
-// Компонент результата поиска
-
+/**
+ * Компонент результата поиска
+ * @param { import ("../../api/types").ILocation } props - объект местоположения из api
+ * @returns
+ */
 function SearchItem(props: ILocation) {
   const { location, setCurrentLocation } = useContext(LocationContext);
 
   const handleSelectClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     // Установка выбранного местоположения в контекст
-    setCurrentLocation(props);
-  }
+    setCurrentLocation(location);
+  };
 
   return (
     <li>
@@ -33,7 +26,9 @@ function SearchItem(props: ILocation) {
         </span>
       </div>
       <div>
-        <button className="select-btn" onClick={handleSelectClick}>Выбрать</button>
+        <button className="select-btn" onClick={handleSelectClick}>
+          Выбрать
+        </button>
       </div>
     </li>
   );

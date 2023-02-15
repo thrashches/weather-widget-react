@@ -24,6 +24,9 @@ interface IChildren {
   children: React.ReactNode;
 }
 
+/**
+ * Контекст-провайдер для выбранного местоположения
+ */
 const LocationProvider: FC<IChildren> = ({ children }) => {
   const [location, setLocation] = useState<ILocation | null>(
     defaultState.location
