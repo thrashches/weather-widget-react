@@ -20,7 +20,7 @@ function Search() {
   };
   const [inputStyle, setInputStyle] = useState(defaultInputStyle);
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUserInput(e.currentTarget.value.toLowerCase());
+    setUserInput(e.currentTarget.value);
     if (!e.currentTarget.value.length) {
       setInputStyle(defaultInputStyle);
     }

@@ -1,0 +1,81 @@
+@import "../../stylesheets/layout/module";
+@import "../../stylesheets/typography/module";
+@import "../../stylesheets/animations/module";
+
+
+.daily-header {
+  position: absolute;
+  padding: 3px;
+  border-radius: 5px;
+  background-color: $ecru;
+  top: -0.8em;
+}
+
+.daily-wrapper {
+  position: relative;
+  padding: 10px;
+  @include flex-col;
+  @include br-15;
+  gap: 15px;
+  background-color: $gray;
+}
+
+.daily__temp {
+  @include text-giant;
+}
+
+.daily__condition {
+  @include d-flex;
+}
+
+.daily__condition__data {
+  @include flex-col;
+  justify-content: center;
+  @include text-regular;
+  @include ta-left;
+  
+}
+
+.summary-wrapper {
+  @include d-flex;
+  @include s-btw;
+}
+
+.daily__secondary-wrapper {
+  @include text-small;
+  @include ta-right;
+}
+
+.hourly-wrapper {
+  @include d-flex;
+  @include s-btw;
+  width: 100%;
+}
+
+.hourly__card {
+  @include flex-col;
+  align-items: center;
+  transition: 250ms;
+}
+
+.hourly__card:hover {
+  @include up-5px;
+}
+
+.hourly__time {
+  @include text-small;
+}
+
+.hourly__wind {
+  @include text-small;
+}
+
+.hourly__temp {
+  @include text-regular;
+}
+
+.wind-direction {
+  height: 20px;
+  width: 20px;
+  color: #FFFFFF;
+}

@@ -6,16 +6,19 @@ import { ILocation } from "../components/Search/SearchItem";
 type LocationContextType = {
   location: ILocation | null;
   setCurrentLocation: (location: ILocation | null) => void;
+  clearSearchResults: () => void;
 };
 
 interface ILocationContext {
   location: ILocation | null;
   setCurrentLocation: (currentLocation: ILocation | null) => void;
+  clearSearchResults: () => void;
 }
 
 const defaultState = {
   location: null,
   setCurrentLocation: () => {},
+  clearSearchResults: () => {},
 };
 
 const LocationContext = createContext<ILocationContext>(defaultState);
@@ -34,12 +37,19 @@ const LocationProvider: FC<IChildren> = ({ children }) => {
 
   const setCurrentLocation = (currentLocation: ILocation | null) => {
     setLocation(currentLocation);
+    // добавить еще одну функцию для очистки всякой залупы
   };
+
+  const clearSearchResults = () => {
+
+  }
   return (
     <LocationContext.Provider
       value={{
         location,
         setCurrentLocation,
+        clearSearchResults,
+        // и сюда ее пропихнуть
       }}
     >
       {children}

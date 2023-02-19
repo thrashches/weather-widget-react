@@ -12,7 +12,7 @@ function SearchItem(props: ILocation) {
 
   const handleSelectClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     // Установка выбранного местоположения в контекст
-    setCurrentLocation(location);
+    setCurrentLocation(props);
   };
 
   return (
