@@ -14,11 +14,17 @@ export default function Weather() {
     <div className="weather">
       <h1>{location?.name}</h1>
       <div className="tab-select">
-        <button className="tab-select__item">Сегодня</button>
-        <button className="tab-select__item tab-select__item__active">На 5 дней</button>
+        <div className="tab-select__item">
+          <input type="radio" id="today" name="dailySwitch" />
+          <label htmlFor="today">Сегодня</label>
+        </div>
+        <div className="tab-select__item">
+          <input type="radio" id="fiveDays" name="dailySwitch" />
+          <label htmlFor="fiveDays">На 5 дней</label>
+        </div>
       </div>
       <FiveDays />
-      <Daily/>
+      <Daily />
     </div>
   );
 }
