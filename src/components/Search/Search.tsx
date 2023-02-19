@@ -5,6 +5,7 @@ import config from "../../api/config";
 import "./Search.scss";
 import { LocationContext } from "../../context/LocationContext";
 import SelectedLocation from "./SelectedLocation";
+import UserGeoBtn from "./UserGeoBtn";
 
 /**
  * Компонент поисковой строки
@@ -66,14 +67,20 @@ function Search() {
         <SelectedLocation {...location} />
       ) : (
         <>
-          <input
-            type="text"
-            className="search"
-            placeholder="Начните вводить название для поиска"
-            style={inputStyle}
-            onInput={handleInput}
-            value={userInput}
-          />
+          <div className="search__input-wrapper">
+            <input
+              type="text"
+              className="search__input"
+              placeholder="Начните вводить название для поиска"
+              style={inputStyle}
+              onInput={handleInput}
+              value={userInput}
+            />
+            <div className="geo-btn">
+              <UserGeoBtn />
+            </div>
+          </div>
+
           <ul className="dropdown" style={{ height: itemsHeight }}>
             {searchItems}
           </ul>
