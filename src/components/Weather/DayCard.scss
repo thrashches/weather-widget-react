@@ -1,10 +1,12 @@
-@import "../../stylesheets/layout/flex";
+@import "../../stylesheets/layout/module";
 @import "../../stylesheets/typography/module";
 
 .day-card {
   @include flex-col;
   align-items: center;
-  background-color: #ffffff;
+  background-color: $gray;
+  color: #FFFFFF;
+  padding: 10px;
   border-radius: 5px;
   transition: 250ms;
 }

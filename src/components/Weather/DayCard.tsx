@@ -12,14 +12,14 @@ const DayCard = (weather: IDayInWeek) => {
 
   return (
     <div className="day-card">
-      <div className="day-card__day text-secondary">
+      <div className="day-card__day">
         {date.getDate()} {date.toLocaleDateString('ru-Ru', { weekday: "long"})}
       </div>
-      <div className="day-card__temp text-secondary">
+      <div className="day-card__temp">
         {Math.round(weather.temp.eve)}{"°"}
       </div>
       <img src={iconUrl} width="50px" height="50px" alt="" />
-      <div className="day-card__type text-secondary">
+      <div className="day-card__type">
         {weather.weather[0].description}
       </div>
     </div>
