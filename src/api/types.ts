@@ -12,7 +12,7 @@ interface ILocation {
   lon: number;
 }
 
-interface IWeather {
+interface IDailyWeather {
   dt: number;
   main: {
     temp: number;
@@ -44,8 +44,51 @@ interface IWeather {
   dt_txt: string;
 }
 
-interface IForecast {
-  list: IWeather[];
+interface IDayInWeek {
+  dt: number;
+  sunrise: number;
+  sunset: number;
+  temp: {
+    day: number;
+    min: number;
+    max: number;
+    night: number;
+    eve: number;
+    morn: number;
+  };
+  feels_like: {
+    day: number;
+    night: number;
+    eve: number;
+    morn: number;
+  };
+  pressure: number;
+  humidity: number;
+  weather: [
+    {
+      id: number;
+      main: string;
+      description: string;
+      icon: string;
+    }
+  ];
+  speed: number;
+  deg: number;
+  gust: number;
 }
 
-export { type ILocation, type IWeather, type IForecast };
+interface IDailyForecast {
+  list: IDailyWeather[];
+}
+
+interface IFiveDaysForecast {
+  list: IDayInWeek[];
+}
+
+export {
+  type ILocation,
+  type IDailyWeather,
+  type IDailyForecast,
+  type IDayInWeek,
+  type IFiveDaysForecast,
+};

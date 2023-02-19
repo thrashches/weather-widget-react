@@ -1,4 +1,4 @@
-import { IForecast, ILocation, IWeather } from "./types";
+import { IDailyForecast, ILocation, IDailyWeather } from "./types";
 import config from "./config";
 
 /**
@@ -54,7 +54,7 @@ async function getDaily(location: ILocation, parts: number) {
 }
 
 async function getFiveDays(location: ILocation) {
-  const url = new URL("http://api.openweathermap.org/data/2.5/forecast");
+  const url = new URL("http://api.openweathermap.org/data/2.5/forecast/daily");
   url.search = new URLSearchParams({
     lat: location.lat.toString(),
     lon: location.lon.toString(),
@@ -75,4 +75,4 @@ async function getFiveDays(location: ILocation) {
   }
 }
 
-export { getCities, getDaily };
+export { getCities, getDaily, getFiveDays };

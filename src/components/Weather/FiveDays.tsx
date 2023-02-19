@@ -1,22 +1,23 @@
 import React, { useState, useContext, useEffect } from "react";
 import DayCard from "./DayCard";
-import { getDaily } from "../../api/requests";
+import { getFiveDays } from "../../api/requests";
 import { LocationContext } from "../../context/LocationContext";
 import "./FiveDays.scss";
-import { IForecast, IWeather } from "../../api/types";
+import { IFiveDaysForecast, IDayInWeek } from "../../api/types";
 
 /**
  * Компонент, отображающий погоду на 5 дней
  */
 export default function FiveDays() {
-  const defaultForecast: IForecast = { list: [] };
-  const [forecast, setForecast] = useState<IForecast>(defaultForecast);
+  const defaultForecast: IFiveDaysForecast = { list: [] };
+  const [forecast, setForecast] = useState<IFiveDaysForecast>(defaultForecast);
   const { location } = useContext(LocationContext);
   useEffect(() => {
     if (location) {
-      getDaily(location, 5)
+      getFiveDays(location)
         .then((response) => {
           setForecast(response);
+          console.log(response)
         })
         .catch((err) => {
           console.log(err);
@@ -24,7 +25,7 @@ export default function FiveDays() {
         });
     }
   }, [location]);
-  const dayCards = forecast.list.map((weather: IWeather, index: number) => {
+  const dayCards = forecast.list.map((weather: IDayInWeek, index: number) => {
     return <DayCard {...weather} key={index} />
   });
 

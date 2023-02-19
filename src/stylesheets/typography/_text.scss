@@ -9,3 +9,27 @@
 @mixin ta-center {
   text-align: center;
 }
+
+@mixin ta-right {
+  text-align: right;
+}
+
+@mixin ta-left {
+  text-align: left;
+}
+
+@mixin text-small {
+  font-size: 13px;
+}
+
+@mixin text-regular {
+  font-size: 20px;
+}
+
+@mixin text-giant {
+  font-size: 80px;
+}
+
+.text-center {
+  @include ta-center;
+}

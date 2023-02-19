@@ -2,21 +2,25 @@
 
 .app-layout {
   @include d-flex;
-  background-color: #282c34;
+  background: linear-gradient($yellow, $ecru, $green);
   min-height: 100vh;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
-  transition: 0.4s height;
+  color: #FFFFFF;
 }
 
 .widget {
   @include flex-col;
+  @include br-20;
+  padding: 20px;
   width: 50vw;
   max-width: 900px;
   gap: 15px;
+  background-color: $blue;
+  transition: 0.4s height;
+  overflow: hidden;
 }
 
 @media (max-width: 1120px) {
