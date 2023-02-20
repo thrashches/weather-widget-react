@@ -8,11 +8,12 @@ import { ILocation } from "../../api/types";
  * @param { import ("../../api/types").ILocation } props - объект местоположения из api
  */
 function SearchItem(props: ILocation) {
-  const { location, setCurrentLocation } = useContext(LocationContext);
+  const { location, setCurrentLocation, results, setSearchResults } = useContext(LocationContext);
 
   const handleSelectClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     // Установка выбранного местоположения в контекст
     setCurrentLocation(props);
+    setSearchResults([]);
   };
 
   return (
