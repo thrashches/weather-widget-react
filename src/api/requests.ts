@@ -75,4 +75,26 @@ async function getFiveDays(location: ILocation) {
   }
 }
 
-export { getCities, getDaily, getFiveDays };
+async function getCurrent(location: ILocation) {
+  const url = new URL("http://api.openweathermap.org/data/2.5/weather");
+  url.search = new URLSearchParams({
+    lat: location.lat.toString(),
+    lon: location.lon.toString(),
+    units: "metric",
+    lang: "ru",
+    appid: config.API_KEY,
+  }).toString();
+  try {
+    const response = await fetch(url);
+    if (response.status === 200) {
+      const fiveDaysForecast = await response.json();
+      return fiveDaysForecast;
+    }
+    throw new Error(`Response status code is ${response.status}!`);
+  } catch {
+    return {};
+  }
+}
+
+
+export { getCities, getDaily, getFiveDays, getCurrent };
