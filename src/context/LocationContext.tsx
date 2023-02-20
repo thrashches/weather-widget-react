@@ -3,22 +3,18 @@ import { ILocation } from "../components/Search/SearchItem";
 
 // Контекст для хранения и передачи выбранного/текущего местоположения
 
-type LocationContextType = {
-  location: ILocation | null;
-  setCurrentLocation: (location: ILocation | null) => void;
-  clearSearchResults: () => void;
-};
-
 interface ILocationContext {
   location: ILocation | null;
   setCurrentLocation: (currentLocation: ILocation | null) => void;
-  clearSearchResults: () => void;
+  results: ILocation[];
+  setSearchResults: (searchResults: ILocation[]) => void;
 }
 
 const defaultState = {
   location: null,
   setCurrentLocation: () => {},
-  clearSearchResults: () => {},
+  results: [],
+  setSearchResults: ([]) => {},
 };
 
 const LocationContext = createContext<ILocationContext>(defaultState);
@@ -34,22 +30,22 @@ const LocationProvider: FC<IChildren> = ({ children }) => {
   const [location, setLocation] = useState<ILocation | null>(
     defaultState.location
   );
+  const [results, setResults] = useState<ILocation[]>([]);
 
   const setCurrentLocation = (currentLocation: ILocation | null) => {
     setLocation(currentLocation);
-    // добавить еще одну функцию для очистки всякой залупы
+  };
+  const setSearchResults = (searchResults: ILocation[]) => {
+    setResults(searchResults);
   };
 
-  const clearSearchResults = () => {
-
-  }
   return (
     <LocationContext.Provider
       value={{
         location,
         setCurrentLocation,
-        clearSearchResults,
-        // и сюда ее пропихнуть
+        results,
+        setSearchResults,
       }}
     >
       {children}
@@ -57,4 +53,4 @@ const LocationProvider: FC<IChildren> = ({ children }) => {
   );
 };
 
-export { LocationContext, type LocationContextType, LocationProvider };
+export { LocationContext, LocationProvider };

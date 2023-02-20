@@ -12,9 +12,6 @@ import UserGeoBtn from "./UserGeoBtn";
  */
 function Search() {
   const [userInput, setUserInput] = useState("");
-  const [results, setResults] = useState<ILocation[] | []>([]);
-  const [itemsHeight, setItemsHeight] = useState(0);
-
   const defaultInputStyle = {
     borderBottomRightRadius: "5px",
     borderBottomLeftRadius: "5px",
@@ -26,7 +23,8 @@ function Search() {
       setInputStyle(defaultInputStyle);
     }
   };
-  const { location } = useContext(LocationContext);
+  const { location, setCurrentLocation, results, setSearchResults } =
+    useContext(LocationContext);
 
   useEffect(() => {
     // Устанавливается задержка перед отправкой запроса,
@@ -35,8 +33,7 @@ function Search() {
       const searchTimeout = setTimeout(() => {
         getCities(userInput)
           .then((response: ILocation[]) => {
-            setResults(response);
-            setItemsHeight(response.length * 36);
+            setSearchResults(response);
             if (response.length) {
               setInputStyle({
                 borderBottomLeftRadius: "0px",
@@ -45,15 +42,13 @@ function Search() {
             }
           })
           .catch(() => {
-            setResults([]);
-            setItemsHeight(0);
+            setSearchResults([]);
             setInputStyle(defaultInputStyle);
           });
       }, config.REQUEST_TIMEOUT);
       return () => clearTimeout(searchTimeout);
     } else {
-      setResults([]);
-      setItemsHeight(0);
+      setSearchResults([]);
     }
   }, [userInput]);
 
@@ -72,7 +67,7 @@ function Search() {
               type="text"
               className="search__input"
               placeholder="Начните вводить название для поиска"
-              style={inputStyle}
+              style={searchItems.length ? inputStyle : defaultInputStyle}
               onInput={handleInput}
               value={userInput}
             />
@@ -81,7 +76,7 @@ function Search() {
             </div>
           </div>
 
-          <ul className="dropdown" style={{ height: itemsHeight }}>
+          <ul className="dropdown" style={{ height: searchItems.length * 36 }}>
             {searchItems}
           </ul>
         </>
