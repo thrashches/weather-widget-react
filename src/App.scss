@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  // font-size: calc(10px + 2vmin);
   color: #FFFFFF;
 }
 
@@ -15,12 +15,11 @@
   @include flex-col;
   @include br-20;
   padding: 20px;
-  width: 50vw;
-  max-width: 900px;
+  width: 900px;
   gap: 15px;
   background-color: $blue;
   transition: 0.4s height;
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 @media (max-width: 1120px) {
@@ -31,6 +30,7 @@
 
 @media (max-width: 750px) {
   .widget {
-    width: 90vw;
+    width: 100%;
+    border-radius: 0;
   }
 }

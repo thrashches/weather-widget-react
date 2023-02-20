@@ -17,7 +17,7 @@ export default function FiveDays() {
       getFiveDays(location)
         .then((response) => {
           setForecast(response);
-          console.log(response)
+          console.log(response);
         })
         .catch((err) => {
           console.log(err);
@@ -26,12 +26,16 @@ export default function FiveDays() {
     }
   }, [location]);
   const dayCards = forecast.list.map((weather: IDayInWeek, index: number) => {
-    return <DayCard {...weather} key={index} />
+    return <DayCard {...weather} key={index} />;
   });
 
   return (
-    <div className="five_days-wrapper">
-      {dayCards}
-    </div>
+    <>
+      {location && forecast ? (
+        <div className="five-days-wrapper">{dayCards}</div>
+      ) : (
+        <></>
+      )}
+    </>
   );
 }

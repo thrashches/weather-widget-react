@@ -12,7 +12,6 @@ export default function Weather() {
 
   return (
     <div className="weather">
-      <h1>{location?.name}</h1>
       <div className="tab-select">
         <div className="tab-select__item">
           <input type="radio" id="today" name="dailySwitch" />
