@@ -2,6 +2,9 @@ import React from "react";
 import { IDailyWeather } from "../../api/types";
 import "./HourlyCard.scss";
 
+/** Погода на 3 часа для дневного прогноза
+ * @param { import ("../../api/types").IDailyWeather } weather - информация об отображаемой погоде
+ */
 const HourlyCard = (weather: IDailyWeather) => {
   const time = new Date(weather.dt * 1000);
   const iconSrc = `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
