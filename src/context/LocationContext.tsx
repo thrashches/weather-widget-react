@@ -1,5 +1,5 @@
 import React, { createContext, FC, useState } from "react";
-import { ILocation } from "../components/Search/SearchItem";
+import { ILocation, IChildren } from "../api/types";
 
 // Контекст для хранения и передачи выбранного/текущего местоположения
 
@@ -19,9 +19,6 @@ const defaultState = {
 
 const LocationContext = createContext<ILocationContext>(defaultState);
 
-interface IChildren {
-  children: React.ReactNode;
-}
 
 /**
  * Контекст-провайдер для выбранного местоположения

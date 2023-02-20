@@ -12,6 +12,14 @@ interface ILocation {
   lon: number;
 }
 
+/** 
+ * Дочерний элемент 
+*/
+interface IChildren {
+  children: React.ReactNode;
+}
+
+
 interface IDailyWeather {
   dt: number;
   main: {
@@ -44,6 +52,9 @@ interface IDailyWeather {
   dt_txt: string;
 }
 
+/**
+ * Погода на день недели
+ */
 interface IDayInWeek {
   dt: number;
   sunrise: number;
@@ -77,6 +88,9 @@ interface IDayInWeek {
   gust: number;
 }
 
+/**
+ * Погода на текущий день
+ */
 interface ICurrentWeather {
   weather: [
     {
@@ -104,16 +118,23 @@ interface ICurrentWeather {
   dt: number;
 }
 
+/**
+ * Почасовой прогноз
+ */
 interface IDailyForecast {
   list: IDailyWeather[];
 }
 
+/**
+ * Прогноз на 5 дней
+ */
 interface IFiveDaysForecast {
   list: IDayInWeek[];
 }
 
 export {
   type ILocation,
+  type IChildren,
   type IDailyWeather,
   type IDailyForecast,
   type IDayInWeek,

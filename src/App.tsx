@@ -4,7 +4,7 @@ import Search from "./components/Search/Search";
 import Weather from "./components/Weather/Weather";
 
 import { LocationProvider } from "./context/LocationContext";
-
+import { DailyProvider } from "./context/DailyContext";
 
 function App() {
   return (
@@ -14,7 +14,9 @@ function App() {
         <main>
           <div className="widget">
             <Search />
-            <Weather />
+            <DailyProvider>
+              <Weather />
+            </DailyProvider>
           </div>
         </main>
         <footer></footer>
