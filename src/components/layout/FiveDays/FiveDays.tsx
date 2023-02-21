@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import DayCard from "../DayCard/DayCard";
 import { getFiveDays } from "../../../api/requests";
 import { LocationContext } from "../../../context/LocationContext";
-import "./FiveDays.scss";
+import style from "./FiveDays.module.scss";
 import { IFiveDaysForecast, IDayInWeek } from "../../../api/types";
 
 /**
@@ -32,7 +32,7 @@ export default function FiveDays() {
   return (
     <>
       {location && forecast ? (
-        <div className="five-days-wrapper">{dayCards}</div>
+        <div className={style.fiveDaysWrapper}>{dayCards}</div>
       ) : (
         <></>
       )}

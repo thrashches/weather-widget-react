@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { getCityByPosition } from "../../../api/requests";
 import { LocationContext } from "../../../context/LocationContext";
 import { ReactComponent as GeoIcon } from "./geo.svg";
-import "./LocationBtn.scss";
+import style from "./LocationBtn.module.scss";
 import { ILocation } from "../../../api/types";
 
 /** Кнопка определения текущего местоположения пользователя */
@@ -23,7 +23,7 @@ export default function LocationBtn() {
   };
 
   return (
-    <button className="user-geo-btn">
+    <button className={style.locationBtn}>
       <GeoIcon height={20} width={20} onClick={handleClick} />
     </button>
   );

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { LocationContext } from "../../../context/LocationContext";
 import Daily from "../Daily/Daily";
 import FiveDays from "../FiveDays/FiveDays";
-import "./Weather.scss";
+import style from "./Weather.module.scss";
 import { DailyContext } from "../../../context/DailyContext";
 import DailySwitch from "../../controls/DailySwitch/DailySwitch";
 
@@ -16,7 +16,7 @@ export default function Weather() {
   return (
     <>
       {location ? (
-        <div className="weather">
+        <div className={style.weather}>
           <DailySwitch />
           {days === "five" && <FiveDays />}
           {days === "today" && <Daily />}

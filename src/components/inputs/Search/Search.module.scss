@@ -8,12 +8,12 @@
   position: relative;
 }
 
-.search__input-wrapper {
+.search__inputWrapper {
   width: 100%;
   position: relative;
 }
 
-.geo-btn {
+.locationBtn {
   position: absolute;
   top: 7px;
   right: 7px;
@@ -61,17 +61,7 @@
   @include search-item;
 }
 
-.flag {
-  height: 12px;
-}
-
-.select-btn {
-  color: #6f92c7;
-  all: unset;
-  cursor: pointer;
-}
-
-.close-btn {
+.closeBtn {
   all: unset;
   cursor: pointer;
   height: 16px;
@@ -87,9 +77,3 @@
   }
 }
 
-.selected-location {
-  background: #fff;
-  @include search-item;
-  border-radius: 5px;
-  width: 100%;
-}

@@ -1,0 +1,9 @@
+@import "../Search/Search.module";
+
+
+.selectedLocation {
+  background: #fff;
+  @include search-item;
+  border-radius: 5px;
+  width: 100%;
+}
