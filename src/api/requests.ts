@@ -26,6 +26,37 @@ async function getCities(userInput: string) {
 }
 
 /**
+ * Функция получения населенного пункта для координат пользователя
+ * @param { GeolocationPosition } position - объект геопозиции пользователя
+ * @returns
+ */
+async function getCityByPosition(position: GeolocationPosition) {
+  const url = new URL("http://api.openweathermap.org/geo/1.0/reverse");
+  url.search = new URLSearchParams({
+    limit: "1",
+    lat: position.coords.latitude.toString(),
+    lon: position.coords.longitude.toString(),
+    appid: config.API_KEY,
+  }).toString();
+  try {
+    const response = await fetch(url);
+    if (response.status === 200) {
+      const cities: ILocation[] = await response.json();
+      if (cities.length) {
+        return cities;
+      } else {
+        throw new Error(
+          "Не удается получить погоду для вашего местоположения."
+        );
+      }
+    }
+    throw new Error(`Response status code is ${response.status}!`);
+  } catch {
+    return [];
+  }
+}
+
+/**
  * Загрузка подробного прогноза на день
  * @param { import ("./types").ILocation } location - объект места для которого загружается погода
  * @param { number } parts - количество timestamp для которых загружается погода
@@ -96,5 +127,4 @@ async function getCurrent(location: ILocation) {
   }
 }
 
-
-export { getCities, getDaily, getFiveDays, getCurrent };
+export { getCities, getCityByPosition, getDaily, getFiveDays, getCurrent };
