@@ -5,7 +5,7 @@ import config from "../../api/config";
 import "./Search.scss";
 import { LocationContext } from "../../context/LocationContext";
 import SelectedLocation from "./SelectedLocation";
-import UserGeoBtn from "./UserGeoBtn";
+import LocationBtn from "./UserGeoBtn";
 
 /**
  * Компонент поисковой строки
@@ -72,7 +72,7 @@ function Search() {
               value={userInput}
             />
             <div className="geo-btn">
-              <UserGeoBtn />
+              <LocationBtn />
             </div>
           </div>
 
