@@ -1,10 +1,10 @@
 import React from "react";
-import { IDayInWeek } from "../../api/types";
+import { IDayInWeek } from "../../../api/types";
 import "./DayCard.scss";
 
 /**
  * Компонент для отображения погоды в конкретный день
- * @param { import ("../../api/types").IWeather } weather - Погода на день
+ * @param { import ("../../../api/types").IWeather } weather - Погода на день
  */
 const DayCard = (weather: IDayInWeek) => {
   const date = new Date(weather.dt * 1000);

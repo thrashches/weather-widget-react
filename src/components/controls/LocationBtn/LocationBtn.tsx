@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { getCityByPosition } from "../../api/requests";
-import { LocationContext } from "../../context/LocationContext";
+import { getCityByPosition } from "../../../api/requests";
+import { LocationContext } from "../../../context/LocationContext";
 import { ReactComponent as GeoIcon } from "./geo.svg";
-import "./UserGeoBtn.scss";
-import { ILocation } from "./SearchItem";
+import "./LocationBtn.scss";
+import { ILocation } from "../../../api/types";
 
 /** Кнопка определения текущего местоположения пользователя */
 export default function LocationBtn() {
