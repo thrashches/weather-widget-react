@@ -1,10 +1,10 @@
 import React from "react";
 import { ICurrentWeather } from "../../../api/types";
 import style from "./CurrentWeather.module.scss";
-import { ReactComponent as WindDirectionIcon } from "./wind-direction.svg";
-import { ReactComponent as WindIcon } from "./wind.svg";
-import { ReactComponent as PressureIcon } from "./pressure.svg";
-import { ReactComponent as HumidityIcon } from "./humidity.svg";
+import { ReactComponent as WindDirectionIcon } from "./WindDirectionIcon.svg";
+import { ReactComponent as WindIcon } from "./WindIcon.svg";
+import { ReactComponent as PressureIcon } from "./PressureIcon.svg";
+import { ReactComponent as HumidityIcon } from "./HumidityIcon.svg";
 
 type DailyProps = {
   currentWeather: ICurrentWeather;

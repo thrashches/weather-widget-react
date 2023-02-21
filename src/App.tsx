@@ -19,7 +19,8 @@ function App() {
             </DailyProvider>
           </div>
         </main>
-        <footer></footer>
+        <footer>
+        </footer>
       </div>
     </LocationProvider>
   );

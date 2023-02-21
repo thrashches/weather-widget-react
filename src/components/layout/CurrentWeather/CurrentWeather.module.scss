@@ -11,6 +11,8 @@
 }
 
 .dailyWrapper {
+  margin: auto 0;
+  height: 100%;
   position: relative;
   padding: 10px;
   @include flex-col;

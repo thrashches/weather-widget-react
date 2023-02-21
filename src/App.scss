@@ -15,6 +15,7 @@
   @include br-20;
   padding: 20px;
   width: 900px;
+  min-height: 450px;
   gap: 15px;
   background-color: $blue;
   transition: 0.4s height;

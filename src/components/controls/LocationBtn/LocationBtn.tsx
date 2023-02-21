@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { getCityByPosition } from "../../../api/requests";
 import { LocationContext } from "../../../context/LocationContext";
-import { ReactComponent as GeoIcon } from "./geo.svg";
+import { ReactComponent as GeoIcon } from "./GeoIcon.svg";
 import style from "./LocationBtn.module.scss";
 import { ILocation } from "../../../api/types";
 
@@ -23,8 +23,8 @@ export default function LocationBtn() {
   };
 
   return (
-    <button className={style.locationBtn}>
-      <GeoIcon height={20} width={20} onClick={handleClick} />
+    <button className={style.LocationBtn} onClick={handleClick}>
+      <GeoIcon height={20} width={20} />
     </button>
   );
 }

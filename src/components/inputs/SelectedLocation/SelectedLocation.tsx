@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Flag } from "react-svg-country-flags";
 import { ILocation } from "../../../api/types";
 import style from "./SelectedLocation.module.scss"
-import { ReactComponent as Close } from "./close.svg";
+import { ReactComponent as Close } from "./Close.svg";
 import { LocationContext } from "../../../context/LocationContext";
 
 /**

@@ -3,4 +3,5 @@
 .weather {
   @include flex-col;
   gap: 15px;
+  height: 100%;
 }

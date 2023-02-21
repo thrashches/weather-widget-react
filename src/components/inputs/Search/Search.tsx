@@ -72,7 +72,7 @@ function Search() {
               onInput={handleInput}
               value={userInput}
             />
-            <div className={style.locationBtn}>
+            <div className={style.locationBtnWrapper}>
               <LocationBtn />
             </div>
           </div>

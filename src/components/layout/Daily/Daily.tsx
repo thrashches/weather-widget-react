@@ -8,6 +8,7 @@ import {
 } from "../../../api/types";
 import HourlyCard from "../HourlyCard/HourlyCard";
 import CurrentWeather from "../CurrentWeather/CurrentWeather";
+import Loader from "../../info/Loader/Loader";
 
 /**
  * Компонент для отображения погоды на текущий день
@@ -20,11 +21,14 @@ export default function Daily() {
     defaultWeather
   );
   const { location } = useContext(LocationContext);
+  const [loading, setLoading] = useState<boolean>(true);
   useEffect(() => {
+    setLoading(true);
     if (location) {
       getDaily(location, 6)
         .then((response) => {
           setForecast(response);
+          setLoading(false);
         })
         .catch((err) => {
           console.log(err);
@@ -48,6 +52,7 @@ export default function Daily() {
 
   return (
     <>
+      {loading && <Loader />}
       {location && currentWeather && hourlyCards ? (
         <CurrentWeather
           {...{
