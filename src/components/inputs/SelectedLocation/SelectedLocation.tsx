@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { Flag } from "react-svg-country-flags";
-import { ILocation } from "./SearchItem";
-import "./Search.scss";
+import { ILocation } from "../../../api/types";
+import "../Search/Search.scss";
 import { ReactComponent as Close } from "./close.svg";
-import { LocationContext } from "../../context/LocationContext";
+import { LocationContext } from "../../../context/LocationContext";
 
 /**
  * Компонент выбранного местоположения

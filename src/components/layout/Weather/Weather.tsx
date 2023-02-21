@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import { LocationContext } from "../../context/LocationContext";
-import Daily from "./Daily";
-import FiveDays from "./FiveDays";
+import { LocationContext } from "../../../context/LocationContext";
+import Daily from "../Daily/Daily";
+import FiveDays from "../FiveDays/FiveDays";
 import "./Weather.scss";
-import { DailyContext } from "../../context/DailyContext";
-import DailySwitch from "../DailySwitch/DailySwitch";
+import { DailyContext } from "../../../context/DailyContext";
+import DailySwitch from "../../controls/DailySwitch/DailySwitch";
 
 /**
  * Компонент для отображения погоды

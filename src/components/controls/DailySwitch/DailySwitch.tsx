@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { DailyContext, DaysType } from "../../context/DailyContext";
+import { DailyContext, DaysType } from "../../../context/DailyContext";
 import "./DailySwitch.scss";
 
 /**Переключатель отображения погоды на день/5 дней */

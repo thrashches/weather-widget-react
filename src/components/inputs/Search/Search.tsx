@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
-import { getCities } from "../../api/requests";
-import { SearchItem, ILocation } from "./SearchItem";
-import config from "../../api/config";
+import { getCities } from "../../../api/requests";
+import SearchItem from "../SearchItem/SearchItem";
+import { ILocation } from "../../../api/types";
+import config from "../../../api/config";
 import "./Search.scss";
-import { LocationContext } from "../../context/LocationContext";
-import SelectedLocation from "./SelectedLocation";
-import LocationBtn from "./UserGeoBtn";
+import { LocationContext } from "../../../context/LocationContext";
+import SelectedLocation from "../SelectedLocation/SelectedLocation";
+import LocationBtn from "../../controls/LocationBtn/LocationBtn";
 
 /**
  * Компонент поисковой строки

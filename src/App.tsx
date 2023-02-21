@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.scss";
-import Search from "./components/Search/Search";
-import Weather from "./components/Weather/Weather";
+import Search from "./components/inputs/Search/Search";
+import Weather from "./components/layout/Weather/Weather";
 
 import { LocationProvider } from "./context/LocationContext";
 import { DailyProvider } from "./context/DailyContext";

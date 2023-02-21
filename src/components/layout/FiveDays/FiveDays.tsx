@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
-import DayCard from "./DayCard";
-import { getFiveDays } from "../../api/requests";
-import { LocationContext } from "../../context/LocationContext";
+import DayCard from "../DayCard/DayCard";
+import { getFiveDays } from "../../../api/requests";
+import { LocationContext } from "../../../context/LocationContext";
 import "./FiveDays.scss";
-import { IFiveDaysForecast, IDayInWeek } from "../../api/types";
+import { IFiveDaysForecast, IDayInWeek } from "../../../api/types";
 
 /**
  * Компонент, отображающий погоду на 5 дней
