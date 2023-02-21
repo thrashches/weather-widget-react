@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Flag from "react-svg-country-flags";
 import { LocationContext } from "../../../context/LocationContext";
 import { ILocation } from "../../../api/types";
+import style from "./SearchItem.module.scss";
 
 /**
  * Компонент результата поиска
@@ -21,13 +22,13 @@ export default function SearchItem(props: ILocation) {
     <li>
       <div>
         {props.name}, {props.state}{" "}
-        <Flag country={props.country} className="flag" />{" "}
+        <Flag country={props.country} className={style.flag} />{" "}
         <span className="text-secondary">
           {props.lat}, {props.lon}
         </span>
       </div>
       <div>
-        <button className="select-btn" onClick={handleSelectClick}>
+        <button className={style.selectBtn} onClick={handleSelectClick}>
           Выбрать
         </button>
       </div>

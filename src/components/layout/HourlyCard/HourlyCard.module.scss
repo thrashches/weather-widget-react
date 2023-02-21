@@ -2,45 +2,35 @@
 @import "../../../stylesheets/animations/module";
 @import "../../../stylesheets/typography/module";
 
-.hourly-wrapper {
-  @include d-flex;
-  @include s-btw;
-  width: 100%;
-}
-
-.hourly__card {
+.hourlyCard {
   @include flex-col;
   align-items: center;
   transition: 250ms;
 }
 
-.hourly__card:hover {
+.hourlyCard:hover {
   @include up-5px;
 }
 
-.hourly__time {
+.hourlyTime {
   @include text-small;
 }
 
-.hourly__wind {
+.hourlyWind {
   @include text-small;
 }
 
-.hourly__temp {
+.hourlyTemp {
   @include text-regular;
 }
 
 @media (max-width: 750px) {
-  .hourly-wrapper {
-    flex-direction: column;
-  }
-
-  .hourly__card {
+  .hourlyCard {
     flex-direction: row;
     justify-content: space-between;
   }
 
-  .hourly__card:hover {
+  .hourlyCard:hover {
     transform: none;
   }
 }

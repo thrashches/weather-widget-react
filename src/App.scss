@@ -7,7 +7,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  // font-size: calc(10px + 2vmin);
   color: #FFFFFF;
 }
 
@@ -19,7 +18,6 @@
   gap: 15px;
   background-color: $blue;
   transition: 0.4s height;
-  // overflow: hidden;
 }
 
 @media (max-width: 1120px) {

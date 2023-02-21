@@ -1,6 +1,5 @@
-.five-days-wrapper {
+.fiveDaysWrapper {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   column-gap: 10px;
-  // overflow-x: scroll;
 }

@@ -2,7 +2,7 @@
 @import "../../../stylesheets/typography/module";
 @import "../../../stylesheets/animations/module";
 
-.daily-header {
+.dailyHeader {
   position: absolute;
   padding: 3px;
   border-radius: 5px;
@@ -10,7 +10,7 @@
   top: -0.8em;
 }
 
-.daily-wrapper {
+.dailyWrapper {
   position: relative;
   padding: 10px;
   @include flex-col;
@@ -19,47 +19,55 @@
   background-color: $gray;
 }
 
-.daily__temp {
+.dailyTemp {
   @include text-giant;
 }
 
-.daily__condition {
+.dailyCondition {
   @include d-flex;
 }
 
-.daily__condition__data {
+.dailyCondition__data {
   @include flex-col;
   justify-content: center;
   @include text-regular;
   @include ta-left;
 }
 
-.summary-wrapper {
+.summaryWrapper {
   @include d-flex;
   @include s-btw;
 }
 
-.daily__secondary-wrapper {
+.dailySecondaryWrapper {
   @include text-small;
   @include ta-right;
 }
 
-
-
-.wind-direction {
+.windDirection {
   height: 20px;
   width: 20px;
   color: #ffffff;
 }
 
+.hourlyWrapper {
+  @include d-flex;
+  @include s-btw;
+  width: 100%;
+}
+
 @media (max-width: 750px) {
-  .summary-wrapper {
+  .summaryWrapper {
     flex-direction: column-reverse;
     align-items: center;
   }
 
-  .daily__condition {
+  .dailyCondition {
     flex-direction: column;
     gap: 20px;
+  }
+
+  .hourlyWrapper {
+    flex-direction: column;
   }
 }

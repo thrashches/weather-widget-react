@@ -3,7 +3,7 @@ import { getCities } from "../../../api/requests";
 import SearchItem from "../SearchItem/SearchItem";
 import { ILocation } from "../../../api/types";
 import config from "../../../api/config";
-import "./Search.scss";
+import style from "./Search.module.scss";
 import { LocationContext } from "../../../context/LocationContext";
 import SelectedLocation from "../SelectedLocation/SelectedLocation";
 import LocationBtn from "../../controls/LocationBtn/LocationBtn";
@@ -58,26 +58,29 @@ function Search() {
   });
 
   return (
-    <div className="wrapper">
+    <div className={style.wrapper}>
       {location ? (
         <SelectedLocation {...location} />
       ) : (
         <>
-          <div className="search__input-wrapper">
+          <div className={style.search__inputWrapper}>
             <input
               type="text"
-              className="search__input"
+              className={style.search__input}
               placeholder="Начните вводить название для поиска"
               style={searchItems.length ? inputStyle : defaultInputStyle}
               onInput={handleInput}
               value={userInput}
             />
-            <div className="geo-btn">
+            <div className={style.locationBtn}>
               <LocationBtn />
             </div>
           </div>
 
-          <ul className="dropdown" style={{ height: searchItems.length * 36 }}>
+          <ul
+            className={style.dropdown}
+            style={{ height: searchItems.length * 36 }}
+          >
             {searchItems}
           </ul>
         </>

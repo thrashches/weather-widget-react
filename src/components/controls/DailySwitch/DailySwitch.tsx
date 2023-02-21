@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { DailyContext, DaysType } from "../../../context/DailyContext";
-import "./DailySwitch.scss";
+import style from "./DailySwitch.module.scss";
 
 /**Переключатель отображения погоды на день/5 дней */
 export default function DailySwitch() {
@@ -11,8 +11,8 @@ export default function DailySwitch() {
   };
 
   return (
-    <div className="tab-select">
-      <div className="tab-select__item">
+    <div className={style.tabSelect}>
+      <div className={style.tabSelect__item}>
         <input
           type="radio"
           id="today"
@@ -23,7 +23,7 @@ export default function DailySwitch() {
         />
         <label htmlFor="today">Сегодня</label>
       </div>
-      <div className="tab-select__item">
+      <div className={style.tabSelect__item}>
         <input
           type="radio"
           id="five"

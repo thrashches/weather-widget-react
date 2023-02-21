@@ -1,6 +1,6 @@
 import React from "react";
 import { ICurrentWeather } from "../../../api/types";
-import "./CurrentWeather.scss";
+import style from "./CurrentWeather.module.scss";
 import { ReactComponent as WindDirectionIcon } from "./wind-direction.svg";
 import { ReactComponent as WindIcon } from "./wind.svg";
 import { ReactComponent as PressureIcon } from "./pressure.svg";
@@ -16,8 +16,8 @@ const CurrentWeather = (dailyProps: DailyProps) => {
   const iconUrl = `http://openweathermap.org/img/wn/${dailyProps.currentWeather.weather[0].icon}@4x.png`;
 
   return (
-    <div className="daily-wrapper">
-      <div className="daily-header">
+    <div className={style.dailyWrapper}>
+      <div className={style.dailyHeader}>
         <h4>
           {currentDate.toLocaleDateString("ru-Ru", {
             day: "numeric",
@@ -25,10 +25,10 @@ const CurrentWeather = (dailyProps: DailyProps) => {
           })}
         </h4>
       </div>
-      <div className="summary-wrapper">
+      <div className={style.summaryWrapper}>
         <div className="daily__main-wrapper">
-          <div className="daily__condition">
-            <div className="daily__condition__data">
+          <div className={style.dailyCondition}>
+            <div className={style.dailyCondition__data}>
               <img
                 src={iconUrl}
                 width="100px"
@@ -39,12 +39,12 @@ const CurrentWeather = (dailyProps: DailyProps) => {
                 {dailyProps.currentWeather.weather[0].description}
               </p>
             </div>
-            <div className="daily__condition__data">
+            <div className={style.dailyCondition__data}>
               <p>
                 <WindIcon width={20} height={20} />{" "}
                 {Math.round(dailyProps.currentWeather.wind.speed)} м/с
                 <WindDirectionIcon
-                  className="wind-direction"
+                  className={style.windDirection}
                   style={{
                     transform: `rotate(${dailyProps.currentWeather.wind.deg}deg)`,
                   }}
@@ -62,23 +62,23 @@ const CurrentWeather = (dailyProps: DailyProps) => {
             </div>
           </div>
         </div>
-        <div className="daily__secondary-wrapper">
-          <div className="daily__temp">
+        <div className={style.dailySecondaryWrapper}>
+          <div className={style.dailyTemp}>
             {Math.round(dailyProps.currentWeather.main.temp)}&deg;
           </div>
-          <div className="daily__temp__secondary">
+          <div>
             Мин: {Math.round(dailyProps.currentWeather.main.temp_min)}&deg;
           </div>
-          <div className="daily__temp__secondary">
+          <div>
             Макс: {Math.round(dailyProps.currentWeather.main.temp_max)}&deg;
           </div>
-          <div className="daily__temp__secondary">
+          <div>
             Ощущается как:{" "}
             {Math.round(dailyProps.currentWeather.main.feels_like)}&deg;
           </div>
         </div>
       </div>
-      <div className="hourly-wrapper">{dailyProps.hourlyCards}</div>
+      <div className={style.hourlyWrapper}>{dailyProps.hourlyCards}</div>
     </div>
   );
 };
