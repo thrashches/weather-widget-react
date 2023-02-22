@@ -8,7 +8,7 @@ import style from "./DayCard.module.scss";
  */
 const DayCard = (weather: IDayInWeek) => {
   const date = new Date(weather.dt * 1000);
-  const iconUrl = `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
+  const iconUrl = `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
 
   return (
     <div className={style.dayCard}>

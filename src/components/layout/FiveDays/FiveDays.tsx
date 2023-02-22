@@ -22,11 +22,9 @@ export default function FiveDays() {
       getFiveDays(location).then(
         (response) => {
           setForecast(response);
-          console.log(response);
           setLoading(false);
         },
         (err) => {
-          console.log(err);
           setError(true);
           setLoading(false);
           setForecast(defaultForecast);

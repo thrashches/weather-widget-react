@@ -7,7 +7,7 @@ import config from "./config";
  * @returns
  */
 async function getCities(userInput: string) {
-  const url = new URL("http://api.openweathermap.org/geo/1.0/direct");
+  const url = new URL("https://api.openweathermap.org/geo/1.0/direct");
   url.search = new URLSearchParams({
     limit: "15",
     q: userInput,
@@ -31,7 +31,7 @@ async function getCities(userInput: string) {
  * @returns
  */
 async function getCityByPosition(position: GeolocationPosition) {
-  const url = new URL("http://api.openweathermap.org/geo/1.0/reverse");
+  const url = new URL("https://api.openweathermap.org/geo/1.0/reverse");
   url.search = new URLSearchParams({
     limit: "1",
     lat: position.coords.latitude.toString(),
@@ -63,7 +63,7 @@ async function getCityByPosition(position: GeolocationPosition) {
  * @returns
  */
 async function getDaily(location: ILocation, parts: number) {
-  const url = new URL("http://api.openweathermap.org/data/2.5/forecast");
+  const url = new URL("https://api.openweathermap.org/data/2.5/forecast");
   url.search = new URLSearchParams({
     lat: location.lat.toString(),
     lon: location.lon.toString(),
@@ -82,7 +82,7 @@ async function getDaily(location: ILocation, parts: number) {
 }
 
 async function getFiveDays(location: ILocation) {
-  const url = new URL("http://api.openweathermap.org/data/2.5/forecast/daily");
+  const url = new URL("https://api.openweathermap.org/data/2.5/forecast/daily");
   url.search = new URLSearchParams({
     lat: location.lat.toString(),
     lon: location.lon.toString(),
@@ -101,7 +101,7 @@ async function getFiveDays(location: ILocation) {
 }
 
 async function getCurrent(location: ILocation) {
-  const url = new URL("http://api.openweathermap.org/data/2.5/weather");
+  const url = new URL("https://api.openweathermap.org/data/2.5/weather");
   url.search = new URLSearchParams({
     lat: location.lat.toString(),
     lon: location.lon.toString(),
