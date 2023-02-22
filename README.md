@@ -13,7 +13,7 @@
 - На ближайшие 5 дней.
 
 Все данные о погоде собираются из [OpenWeatherMap](https://openweathermap.org/) по API.\
-Посмотреть виджет в деле можно [тут](https://thrashches.github.io/weather-widget-react).\
+Посмотреть виджет в деле можно [тут](https://thrashches.github.io/weather-widget-react).
 
 ## Доступные действия
 
@@ -40,16 +40,16 @@ yarn build
 
 Сборка приложения в папку `build`.\
 Сборка производится с необходимыми минификациями и оптимизациями.\
-Приложение будет готово для деплоя.
+Приложение будет готово для деплоя.\
+Подробнее можно узнать в [документации](https://facebook.github.io/create-react-app/docs/deployment).
 
 #
 ```bash
 yarn deploy
 ```
 
-Сборка приложения в папку `build`, с последующим деплоем в ```GitHub pages```.\
+Сборка приложения в папку `build`, с последующим деплоем в ```GitHub pages```.
 
-Подробнее можно узнать в [документации](https://facebook.github.io/create-react-app/docs/deployment).
 #
 ```bash
 yarn eject
