@@ -11,15 +11,15 @@ const DayCard = (weather: IDayInWeek) => {
   const iconUrl = `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
 
   return (
-    <div className={style.dayCard}>
-      <div className={style.dayCard__day}>
+    <div className={style.DayCard}>
+      <div className={style.DayCard__day}>
         {date.getDate()} {date.toLocaleDateString('ru-Ru', { weekday: "long"})}
       </div>
-      <div className={style.dayCard__temp}>
+      <div className={style.DayCard__temp}>
         {Math.round(weather.temp.eve)}{"°"}
       </div>
       <img src={iconUrl} width="50px" height="50px" alt="" />
-      <div className={style.dayCard__type}>
+      <div className={style.DayCard__type}>
         {weather.weather[0].description}
       </div>
     </div>
