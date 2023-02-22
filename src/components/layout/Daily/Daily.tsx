@@ -31,12 +31,10 @@ export default function Daily() {
       getDaily(location, 6)
         .then(
           (response) => {
-            console.log(response);
             setForecast(response);
             setLoading(false);
           },
           (err) => {
-            console.log(err);
             setLoading(false);
             setError(true);
           }
@@ -44,12 +42,10 @@ export default function Daily() {
         .catch();
       getCurrent(location).then(
         (response) => {
-          console.log(response);
           setCurrentWeather(response);
           setLoading(false);
         },
         (err) => {
-          console.log(err);
           setLoading(false);
           setError(true);
         }

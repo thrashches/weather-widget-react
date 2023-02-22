@@ -13,7 +13,7 @@ type DailyProps = {
 
 const CurrentWeather = (dailyProps: DailyProps) => {
   const currentDate = new Date(dailyProps.currentWeather.dt * 1000);
-  const iconUrl = `http://openweathermap.org/img/wn/${dailyProps.currentWeather.weather[0].icon}@4x.png`;
+  const iconUrl = `https://openweathermap.org/img/wn/${dailyProps.currentWeather.weather[0].icon}@4x.png`;
 
   return (
     <div className={style.dailyWrapper}>
