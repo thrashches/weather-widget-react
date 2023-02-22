@@ -1,4 +1,4 @@
-import { IDailyForecast, ILocation, IDailyWeather } from "./types";
+import { ILocation } from "./types";
 import config from "./config";
 
 /**

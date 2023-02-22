@@ -1,37 +1,46 @@
 @import "../../../stylesheets/layout/module";
 @import "../../../stylesheets/typography/module";
 
-.dayCard {
+.DayCard {
   @include flex-col;
   align-items: center;
   background-color: $gray;
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 10px;
   border-radius: 5px;
   transition: 250ms;
 }
 
-.dayCard:hover {
+.DayCard:hover {
   transform: translate(0px, -5px);
 }
 
-.dayCard__day {
+.DayCard__day {
   @include ta-center;
   font-size: 15px;
 }
 
-.dayCard__temp {
+.DayCard__temp {
   @include ta-center;
   font-size: 25px;
 }
 
-.dayCard__type {
+.DayCard__type {
   @include ta-center;
   font-size: 20px;
 }
 
-@media (max-width: 750px) {
-  .dayCard:hover {
+@media (max-width: 900px) {
+  .DayCard {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 2fr;
+  }
+
+  .DayCard:hover {
     transform: none;
+  }
+
+  .DayCard__type {
+    font-size: 15px;
   }
 }

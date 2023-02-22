@@ -5,3 +5,11 @@
   grid-template-columns: repeat(5, 1fr);
   column-gap: 10px;
 }
+
+@media (max-width: 900px) {
+  .FiveDaysWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+}
