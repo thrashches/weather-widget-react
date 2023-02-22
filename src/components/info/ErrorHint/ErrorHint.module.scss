@@ -1,0 +1,26 @@
+.ErrorHint {
+  position: absolute;
+  padding: 10px;
+  top: 25px;
+  right: 0;
+  width: 180px;
+  background-color: #FFFFFF;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
+  color: red;
+  border-radius: 5px;
+  font-size: 13px;
+  animation-duration: 250ms;
+  animation-name: ease-out;
+  overflow: hidden;
+}
+
+@keyframes ease-out {
+  from {
+    width: 0;
+    height: 0;
+  }
+  to {
+    width: 150px;
+    height: auto;
+  }
+}

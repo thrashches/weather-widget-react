@@ -8,6 +8,8 @@ import {
 } from "../../../api/types";
 import HourlyCard from "../HourlyCard/HourlyCard";
 import CurrentWeather from "../CurrentWeather/CurrentWeather";
+import Loader from "../../info/Loader/Loader";
+import ErrorMessage from "../../info/ErrorMessage/ErrorMessage";
 
 /**
  * Компонент для отображения погоды на текущий день
@@ -20,26 +22,41 @@ export default function Daily() {
     defaultWeather
   );
   const { location } = useContext(LocationContext);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<boolean>(false);
+
   useEffect(() => {
+    setLoading(true);
     if (location) {
       getDaily(location, 6)
-        .then((response) => {
-          setForecast(response);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      getCurrent(location)
-        .then((response) => {
+        .then(
+          (response) => {
+            console.log(response);
+            setForecast(response);
+            setLoading(false);
+          },
+          (err) => {
+            console.log(err);
+            setLoading(false);
+            setError(true);
+          }
+        )
+        .catch();
+      getCurrent(location).then(
+        (response) => {
+          console.log(response);
           setCurrentWeather(response);
-        })
-        .catch((err) => {
+          setLoading(false);
+        },
+        (err) => {
           console.log(err);
-        });
+          setLoading(false);
+          setError(true);
+        }
+      );
     }
   }, [location]);
 
-  // const currentDate = new Date(currentWeather.dt * 1000);
   const hourlyCards = forecast.list.map(
     (weather: IDailyWeather, index: number) => {
       return <HourlyCard {...weather} key={index} />;
@@ -48,6 +65,8 @@ export default function Daily() {
 
   return (
     <>
+      {error && <ErrorMessage />}
+      {loading && <Loader />}
       {location && currentWeather && hourlyCards ? (
         <CurrentWeather
           {...{

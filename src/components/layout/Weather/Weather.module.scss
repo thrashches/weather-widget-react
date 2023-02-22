@@ -1,6 +1,7 @@
 @import "../../../stylesheets/layout/module";
 
-.weather {
+.Weather {
   @include flex-col;
   gap: 15px;
+  min-height: 380px;
 }

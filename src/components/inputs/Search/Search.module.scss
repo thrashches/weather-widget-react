@@ -8,18 +8,18 @@
   position: relative;
 }
 
-.search__inputWrapper {
+.Search__inputWrapper {
   width: 100%;
   position: relative;
 }
 
-.locationBtn {
+.LocationBtnWrapper {
   position: absolute;
   top: 7px;
   right: 7px;
 }
 
-.search__input {
+.Search__input {
   color: #000000;
   padding: 12px 10px;
   width: 100%;
@@ -61,7 +61,7 @@
   @include search-item;
 }
 
-.closeBtn {
+.CloseBtn {
   all: unset;
   cursor: pointer;
   height: 16px;

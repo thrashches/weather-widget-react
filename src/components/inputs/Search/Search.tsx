@@ -63,16 +63,16 @@ function Search() {
         <SelectedLocation {...location} />
       ) : (
         <>
-          <div className={style.search__inputWrapper}>
+          <div className={style.Search__inputWrapper}>
             <input
               type="text"
-              className={style.search__input}
+              className={style.Search__input}
               placeholder="Начните вводить название для поиска"
               style={searchItems.length ? inputStyle : defaultInputStyle}
               onInput={handleInput}
               value={userInput}
             />
-            <div className={style.locationBtn}>
+            <div className={style.LocationBtnWrapper}>
               <LocationBtn />
             </div>
           </div>

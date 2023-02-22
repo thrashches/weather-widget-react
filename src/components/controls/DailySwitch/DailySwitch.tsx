@@ -11,8 +11,8 @@ export default function DailySwitch() {
   };
 
   return (
-    <div className={style.tabSelect}>
-      <div className={style.tabSelect__item}>
+    <div className={style.TabSelect}>
+      <div className={style.TabSelect__item}>
         <input
           type="radio"
           id="today"
@@ -23,7 +23,7 @@ export default function DailySwitch() {
         />
         <label htmlFor="today">Сегодня</label>
       </div>
-      <div className={style.tabSelect__item}>
+      <div className={style.TabSelect__item}>
         <input
           type="radio"
           id="five"

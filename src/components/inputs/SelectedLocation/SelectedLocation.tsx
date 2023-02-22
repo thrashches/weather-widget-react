@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Flag } from "react-svg-country-flags";
 import { ILocation } from "../../../api/types";
 import style from "./SelectedLocation.module.scss"
-import { ReactComponent as Close } from "./close.svg";
+import { ReactComponent as Close } from "./Close.svg";
 import { LocationContext } from "../../../context/LocationContext";
 
 /**
@@ -17,15 +17,15 @@ export default function SelectedLocation(props: ILocation) {
   };
 
   return (
-    <div className={style.selectedLocation}>
+    <div className={style.SelectedLocation}>
       <p>
         {props.name}, {props.state} <Flag country={props.country} />{" "}
         <span className="text-secondary">
           {props.lat}, {props.lon}
         </span>
       </p>
-      <button className={style.closeBtn}>
-        <Close className={style.closeBtn__icon} onClick={handleCloseClick} />
+      <button className={style.CloseBtn}>
+        <Close className={style.CloseBtn__icon} onClick={handleCloseClick} />
       </button>
     </div>
   );

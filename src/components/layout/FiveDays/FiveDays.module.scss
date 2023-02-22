@@ -1,4 +1,6 @@
-.fiveDaysWrapper {
+.FiveDaysWrapper {
+  margin-top: 50px;
+  height: 100%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   column-gap: 10px;

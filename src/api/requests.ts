@@ -72,16 +72,13 @@ async function getDaily(location: ILocation, parts: number) {
     lang: "ru",
     appid: config.API_KEY,
   }).toString();
-  try {
-    const response = await fetch(url);
-    if (response.status === 200) {
-      const forecast = await response.json();
-      return forecast;
-    }
-    throw new Error(`Response status code is ${response.status}!`);
-  } catch {
-    return {};
+
+  const response = await fetch(url);
+  if (response.status === 200) {
+    const forecast = await response.json();
+    return forecast;
   }
+  throw new Error(`Response status code is ${response.status}!`);
 }
 
 async function getFiveDays(location: ILocation) {
@@ -94,16 +91,13 @@ async function getFiveDays(location: ILocation) {
     lang: "ru",
     appid: config.API_KEY,
   }).toString();
-  try {
-    const response = await fetch(url);
-    if (response.status === 200) {
-      const fiveDaysForecast = await response.json();
-      return fiveDaysForecast;
-    }
-    throw new Error(`Response status code is ${response.status}!`);
-  } catch {
-    return {};
+
+  const response = await fetch(url);
+  if (response.status === 200) {
+    const fiveDaysForecast = await response.json();
+    return fiveDaysForecast;
   }
+  throw new Error(`Response status code is ${response.status}!`);
 }
 
 async function getCurrent(location: ILocation) {
@@ -115,16 +109,12 @@ async function getCurrent(location: ILocation) {
     lang: "ru",
     appid: config.API_KEY,
   }).toString();
-  try {
-    const response = await fetch(url);
-    if (response.status === 200) {
-      const fiveDaysForecast = await response.json();
-      return fiveDaysForecast;
-    }
-    throw new Error(`Response status code is ${response.status}!`);
-  } catch {
-    return {};
+  const response = await fetch(url);
+  if (response.status === 200) {
+    const fiveDaysForecast = await response.json();
+    return fiveDaysForecast;
   }
+  throw new Error(`Response status code is ${response.status}!`);
 }
 
 export { getCities, getCityByPosition, getDaily, getFiveDays, getCurrent };
