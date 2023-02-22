@@ -5,7 +5,7 @@
   @include flex-col;
   align-items: center;
   background-color: $gray;
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 10px;
   border-radius: 5px;
   transition: 250ms;
@@ -43,5 +43,4 @@
   .DayCard__type {
     font-size: 15px;
   }
-
 }
