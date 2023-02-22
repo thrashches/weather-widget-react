@@ -22,13 +22,13 @@ export default function SearchItem(props: ILocation) {
     <li>
       <div>
         {props.name}, {props.state}{" "}
-        <Flag country={props.country} className={style.flag} />{" "}
+        <Flag country={props.country} className={style.Flag} />{" "}
         <span className="text-secondary">
           {props.lat}, {props.lon}
         </span>
       </div>
       <div>
-        <button className={style.selectBtn} onClick={handleSelectClick}>
+        <button className={style.SelectBtn} onClick={handleSelectClick}>
           Выбрать
         </button>
       </div>

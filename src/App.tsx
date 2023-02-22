@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./App.scss";
 import Search from "./components/inputs/Search/Search";
 import Weather from "./components/layout/Weather/Weather";
 
-import { LocationProvider } from "./context/LocationContext";
+import { LocationContext, LocationProvider } from "./context/LocationContext";
 import { DailyProvider } from "./context/DailyContext";
 
 function App() {

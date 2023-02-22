@@ -1,7 +1,7 @@
 @import "../Search/Search.module";
 
 
-.selectedLocation {
+.SelectedLocation {
   background: #fff;
   @include search-item;
   border-radius: 5px;

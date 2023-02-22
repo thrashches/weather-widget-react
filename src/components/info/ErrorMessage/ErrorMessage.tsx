@@ -1,6 +1,9 @@
 import React from "react";
 import style from "./ErrorMessage.module.scss";
 
+/**
+ * Сообщение об ошибке загрузки погоды
+ */
 const ErrorMessage = () => (
   <div className={style.NoLocation}>
     <h2>

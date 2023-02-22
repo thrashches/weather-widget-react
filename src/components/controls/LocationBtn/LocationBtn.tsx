@@ -1,13 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { getCityByPosition } from "../../../api/requests";
 import { LocationContext } from "../../../context/LocationContext";
 import { ReactComponent as GeoIcon } from "./GeoIcon.svg";
 import style from "./LocationBtn.module.scss";
 import { ILocation } from "../../../api/types";
+import ErrorHint from "../../info/ErrorHint/ErrorHint";
 
 /** Кнопка определения текущего местоположения пользователя */
 export default function LocationBtn() {
   const { location, setCurrentLocation } = useContext(LocationContext);
+  const [error, setError] = useState<boolean>(false);
 
   const handleClick = () => {
     if (navigator.geolocation) {
@@ -18,13 +20,21 @@ export default function LocationBtn() {
           }
         });
       };
-      navigator.geolocation.getCurrentPosition(success);
+      navigator.geolocation.getCurrentPosition(success, () => {
+        setError(true);
+        setTimeout(() => setError(false), 5000);
+      });
     }
   };
 
   return (
-    <button className={style.LocationBtn} onClick={handleClick}>
-      <GeoIcon height={20} width={20} />
-    </button>
+    <div className={style.LocationBtn__wrapper}>
+      <button className={style.LocationBtn} onClick={handleClick}>
+        <GeoIcon height={20} width={20} />
+      </button>
+      {error && (
+        <ErrorHint message="Активируйте службы геолокации на вашем устройстве!" />
+      )}
+    </div>
   );
 }

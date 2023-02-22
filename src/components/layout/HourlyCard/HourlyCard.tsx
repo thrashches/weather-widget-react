@@ -9,13 +9,13 @@ const HourlyCard = (weather: IDailyWeather) => {
   const time = new Date(weather.dt * 1000);
   const iconSrc = `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
   return (
-    <div className={style.hourlyCard}>
-      <div className={style.hourlyTime}>
+    <div className={style.HourlyCard}>
+      <div className={style.HourlyTime}>
         {time.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
       </div>
-      <div className={style.hourlyTemp}>{Math.round(weather.main.temp)}&deg;</div>
+      <div className={style.HourlyTemp}>{Math.round(weather.main.temp)}&deg;</div>
       <img src={iconSrc} width="50px" height="50px" alt="" />
-      <div className={style.hourlyWind}>{Math.round(weather.wind.speed)} м/с</div>
+      <div className={style.HourlyWind}>{Math.round(weather.wind.speed)} м/с</div>
     </div>
   );
 };

@@ -2,29 +2,29 @@
 @import "../../../stylesheets/typography/module";
 @import "../../../stylesheets/animations/module";
 
-.tabSelect {
+.TabSelect {
   @include d-flex;
   margin-bottom: 15px;
   justify-content: space-around;
 }
 
-.tabSelect__item {
+.TabSelect__item {
   @include text-regular;
   transition: 250ms;
 }
-.tabSelect__item:hover {
+.TabSelect__item:hover {
   @include up-5px;
 }
 
-.tabSelect__item input {
+.TabSelect__item input {
   all: unset;
 }
 
-.tabSelect__item label {
+.TabSelect__item label {
   cursor: pointer;
 }
 
-.tabSelect__item input[type="radio"]:checked + label {
+.TabSelect__item input[type="radio"]:checked + label {
   padding: 5px;
   border-radius: 5px;
   width: 100%;

@@ -2,35 +2,35 @@
 @import "../../../stylesheets/animations/module";
 @import "../../../stylesheets/typography/module";
 
-.hourlyCard {
+.HourlyCard {
   @include flex-col;
   align-items: center;
   transition: 250ms;
 }
 
-.hourlyCard:hover {
+.HourlyCard:hover {
   @include up-5px;
 }
 
-.hourlyTime {
+.HourlyTime {
   @include text-small;
 }
 
-.hourlyWind {
+.HourlyWind {
   @include text-small;
 }
 
-.hourlyTemp {
+.HourlyTemp {
   @include text-regular;
 }
 
 @media (max-width: 750px) {
-  .hourlyCard {
+  .HourlyCard {
     flex-direction: row;
     justify-content: space-between;
   }
 
-  .hourlyCard:hover {
+  .HourlyCard:hover {
     transform: none;
   }
 }
