@@ -7,7 +7,7 @@ interface AppConfig {
  * Конфигурация приложения
  */
 const config: AppConfig = {
-  API_KEY: "49b8785c49a510159343b52e91604bde",
+  API_KEY: process.env.REACT_APP_API_KEY||"",
   REQUEST_TIMEOUT: 1000,
 };
 
