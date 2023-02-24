@@ -9,7 +9,7 @@ import style from "./SearchItem.module.scss";
  * @param { import ("../../api/types").ILocation } props - объект местоположения из api
  */
 export default function SearchItem(props: ILocation) {
-  const { location, setCurrentLocation, results, setSearchResults } =
+  const { setCurrentLocation, setSearchResults } =
     useContext(LocationContext);
 
   const handleSelectClick = (e: React.MouseEvent<HTMLButtonElement>) => {

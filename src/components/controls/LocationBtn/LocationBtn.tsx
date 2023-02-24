@@ -8,7 +8,7 @@ import ErrorHint from "../../info/ErrorHint/ErrorHint";
 
 /** Кнопка определения текущего местоположения пользователя */
 export default function LocationBtn() {
-  const { location, setCurrentLocation } = useContext(LocationContext);
+  const { setCurrentLocation } = useContext(LocationContext);
   const [error, setError] = useState<boolean>(false);
 
   const handleClick = () => {

@@ -24,7 +24,7 @@ function Search() {
       setInputStyle(defaultInputStyle);
     }
   };
-  const { location, setCurrentLocation, results, setSearchResults } =
+  const { location, results, setSearchResults } =
     useContext(LocationContext);
 
   useEffect(() => {
