@@ -10,7 +10,7 @@ import { LocationContext } from "../../../context/LocationContext";
  * @param { import ("../../api/types").ILocation } props - объект местоположения из api
  */
 export default function SelectedLocation(props: ILocation) {
-  const { location, setCurrentLocation } = useContext(LocationContext);
+  const { setCurrentLocation } = useContext(LocationContext);
 
   const handleCloseClick = () => {
     setCurrentLocation(null);

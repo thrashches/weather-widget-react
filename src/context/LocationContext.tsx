@@ -14,7 +14,7 @@ const defaultState = {
   location: null,
   setCurrentLocation: () => {},
   results: [],
-  setSearchResults: ([]) => {},
+  setSearchResults: () => {},
 };
 
 const LocationContext = createContext<ILocationContext>(defaultState);
